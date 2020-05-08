@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+<div class="col s12">
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title" style="text-align: center">Welcome to Egg Hunter. This site was built on the idea of making NewEgg shopping
+      easier and less complicated. When shopping on NewEgg, nothing takes more time than deciding which
+      item in your search is the best one. Here, you are able to filter, rank, and view the items
+      in many different ways hopefully helping to save time and money.</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col s12">
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title" style="text-align: center">How?</span>
+        <p style="text-align: center">Egg Hunter categorizes items based on individual ranks. The value for these ranks can be seen for each item.
+        Addtionally, Egg Hunter allows you to sort items based off of a single rank, or multiple! Giving you lots of control.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="card blue-grey darken-1">
+    <div class="card">
+        <table class="centered">
+          <thead>
+            <tr>
+                <th><i class="material-icons dp48" style="font-size:25px">monetization_on</i></th>
+                <th><i class="material-icons dp48" style="font-size:25px">star</i></th>
+                <th><i class="material-icons dp48" style="font-size:25px">people</i></th>
+                <th><i class="material-icons dp48" style="font-size:25px">show_chart</i></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Represents the "price" rank of the item relative to the others. The cheaper the better.</td>
+              <td>Represents the "rating" rank of the item relative to the others. The higher the better.</td>
+              <td>Represents the "number of ratings" rank of the item relative to the others. The more the better.</td>
+              <td>Represents the "relationship" rank of the item relative to the others. The relationship of an item represents
+                  the difference between it's price and rating rank. The lower the better. This rank may be important for
+                  deciding which item presents a better deal or trade off between price and rating.</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+

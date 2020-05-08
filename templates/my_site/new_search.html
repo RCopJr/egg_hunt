@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% load custom_templates %}
+
+
+  <h2 style="text-align: left">Search for: {{ search | title}}</h2>
+
+  <div class="row">
+    {% for item in ranked_keys %}
+        <div class="col s6">
+          <div class="card horizontal">
+            <div class="card-image"><img src={{  items|index:item|index:image_index }}></div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <h6>{{ item|truncatechars:title_name_limit }}</h6>
+                <table class="centered">
+                  <thead>
+                    <tr>
+                        <th>Price ${{ items|index:item|index:price_index }}</th>
+                        <th>Eggs {{ items|index:item|index:rating_index }}</th>
+                        <th>Reviews {{ items|index:item|index:num_ratings_index }}</th>
+                    </tr>
+                  </thead>
+                </table>
+
+                <table class="centered highlight responsive-table">
+                  <thead>
+                    <tr>
+                        <th><i class="material-icons dp48" style="font-size:25px">monetization_on</i></th>
+                        <th><i class="material-icons dp48" style="font-size:25px">star</i></th>
+                        <th><i class="material-icons dp48" style="font-size:25px">people</i></th>
+                        <th><i class="material-icons dp48" style="font-size:25px">show_chart</i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ items|index:item|index:price_rank_index }}</td>
+                      <td>{{ items|index:item|index:rating_rank_index }}</td>
+                      <td>{{ items|index:item|index:num_rating_rank_index }}</td>
+                      <td>{{ items|index:item|index:relationship_rank_index }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+                <div class="card-action">
+                    <a class="btn-floating halfway-fab waves-effect waves-light #212121 grey darken-4" href={{ items|index:item|index:base_link_index }}>
+                        <i class="material-icons">zoom_in</i>
+                    </a>
+                </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

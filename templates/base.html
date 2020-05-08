@@ -1,0 +1,104 @@
+{% load static %}
+
+<html lang="'en">
+<head>
+    <meta charset="UTF-8">
+    <title>Egg Hunt</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+
+
+</head>
+
+<div class="#f5f5f5 grey lighten-4">
+    <nav class = "#37474f blue-grey darken-4">
+        <div class="container nav-wrapper">
+          <a href="/" class="brand-logo center">Egg Hunter</a>
+          <ul id="nav-mobile" class=" center">
+            <li><a href="/">Home</a></li>
+          </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h2 style="text-align: center">New Egg Shopping Made Easy <i class="material-icons dp48" style="font-size:50px">check</i></h2>
+
+        <div class="row">
+            <div class="col s6">
+                <div class="center">
+                    <h4 style="text-align: left">Helps Save Money <i class="material-icons dp48" style="font-size:33px">attach_money</i></h4>
+                </div>
+            </div>
+
+            <div class="col s6">
+                <div class="center">
+                    <h4 style="text-align: right">Helps Save Time <i class="material-icons dp48" style="font-size:33px">access_time</i></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+           <form action="{% url 'new_search' %}" method="post">
+               {% csrf_token %}
+               <div class="row">
+                   <div class="input-field col s10">
+                       <input type="text" name="search" placeholder="What do you want?" value="{{ search }}">
+                   </div>
+                   <div class="input-field col s2">
+                       <button class="btn waves-effect waves-light" type="submit" name="action">Show
+                            <i class="material-icons right">search</i>
+                       </button>
+                   </div>
+               </div>
+
+               <div class="row">
+                <table class="responsive-table">
+                    <thead>
+                      <tr>
+                          <th>
+                              <p>Rank Items By:</p>
+                          </th>
+                          <th>
+                              <label for="price_checked">
+                                <input type="checkbox" name="price_checked" id="price_checked" {{ price_checked }}/>
+                                <span>Price</span>
+                              </label>
+                          </th>
+                          <th>
+                              <label for="ratings_checked">
+                                <input type="checkbox" name="ratings_checked" id="ratings_checked" {{ ratings_checked }}/>
+                                <span>Rating</span>
+                              </label>
+                          </th>
+                          <th>
+                              <label for="num_ratings_checked">
+                                <input type="checkbox" name="num_ratings_checked" id="num_ratings_checked" {{ num_ratings_checked }}/>
+                                <span>Number of Ratings</span>
+                              </label>
+                          </th>
+                          <th>
+                              <label for="relationship_checked">
+                                <input type="checkbox" name="relationship_checked" id="relationship_checked" {{ relationship_checked }}/>
+                                <span>Relationship</span>
+                              </label>
+                          </th>
+                      </tr>
+                    </thead>
+                  </table>
+               </div>
+           </form>
+        </div>
+        {% block content %}
+
+        {% endblock content %}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    </div>
+</div>
+
+
+</html>
