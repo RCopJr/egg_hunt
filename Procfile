@@ -1,0 +1,1 @@
+web: gunicorn egg_hunt.wsgi
