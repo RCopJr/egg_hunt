@@ -91,6 +91,8 @@ def new_search(request):
 
         ranked_keys = f.rank(items, min, d.user_sum_index, d.user_rank_index, True)
 
+    test = len(ranked_keys)
+
     #Dictionary of Values used in html front end Django Templates
     frontend_vars = {
         'search': search,
@@ -110,6 +112,7 @@ def new_search(request):
         'ratings_checked': rank_filters[d.reviewsRIndex],
         'num_ratings_checked': rank_filters[d.numReviewsRIndex],
         'relationship_checked': rank_filters[d.relRPRIndex],
+        'test': test,
     }
 
     # Displays items

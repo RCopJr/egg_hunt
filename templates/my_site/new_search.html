@@ -6,9 +6,10 @@
 
 
   <h2 style="text-align: left">Search for: {{ search | title}}</h2>
+  <h2>  {{test}} </h2>
 
   <div class="row">
-
+    {% for item in ranked_keys %}
         <div class="col s6">
           <div class="card horizontal">
             <div class="card-image"><img src={{  items|index:item|index:image_index }}></div>
@@ -52,7 +53,7 @@
             </div>
           </div>
         </div>
-
+    {% endfor %}
   </div>
 
 {% endblock content %}
