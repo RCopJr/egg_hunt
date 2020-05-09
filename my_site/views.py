@@ -116,6 +116,7 @@ def new_search(request):
         'test': test,
         "len_items": len_items,
         "len_item_containers": len_item_containers,
+        "final_url": final_url
     }
 
     # Displays items
