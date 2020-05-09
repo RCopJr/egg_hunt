@@ -92,7 +92,7 @@ def retrieve_data(itemContainers, items):
 
             items[title] = itemInfo
 
-    return items
+    return itemContainers
 
 def display_dictionary(items):
     """Prints the items and its contents out"""

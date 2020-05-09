@@ -50,10 +50,11 @@ def new_search(request):
     itemContainers = f.get_item_containers_ng(final_url)
 
     # retrieves the information I want from the website
-    items = f.retrieve_data(itemContainers, items)
+    itemContainers = f.retrieve_data(itemContainers, items)
 
     #TODO Also refactor this part so that you can create a for loop instead of ranking three times
     len_items = len(items)
+    len_item_containers = len(itemContainers)
     # ranks prices
     f.rank(items, min, d.priceIndex, d.priceRIndex, False)
 
@@ -113,7 +114,8 @@ def new_search(request):
         'num_ratings_checked': rank_filters[d.numReviewsRIndex],
         'relationship_checked': rank_filters[d.relRPRIndex],
         'test': test,
-        "len_items":len_items,
+        "len_items": len_items,
+        "len_item_containers": len_item_containers,
     }
 
     # Displays items
