@@ -50,7 +50,7 @@ def new_search(request):
     itemContainers = f.get_item_containers_ng(final_url)
 
     # retrieves the information I want from the website
-    itemContainers = f.retrieve_data(itemContainers, items)
+    items = f.retrieve_data(itemContainers, items)
 
     #TODO Also refactor this part so that you can create a for loop instead of ranking three times
     len_items = len(items)
