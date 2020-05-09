@@ -47,13 +47,12 @@ def new_search(request):
 
     # Variables for storing
     items = {}
-    itemContainers = f.get_item_containers_ng(final_url)
+    itemContainers, test = f.get_item_containers_ng(final_url)
     len_item_containers = len(itemContainers)
     # retrieves the information I want from the website
     itemContainers = f.retrieve_data(itemContainers, items)
 
     #TODO Also refactor this part so that you can create a for loop instead of ranking three times
-    len_items = len(items)
 
     # ranks prices
     f.rank(items, min, d.priceIndex, d.priceRIndex, False)
@@ -92,8 +91,6 @@ def new_search(request):
 
         ranked_keys = f.rank(items, min, d.user_sum_index, d.user_rank_index, True)
 
-    test = len(ranked_keys)
-
     #Dictionary of Values used in html front end Django Templates
     frontend_vars = {
         'search': search,
@@ -114,9 +111,6 @@ def new_search(request):
         'num_ratings_checked': rank_filters[d.numReviewsRIndex],
         'relationship_checked': rank_filters[d.relRPRIndex],
         'test': test,
-        "len_items": len_items,
-        "len_item_containers": len_item_containers,
-        "final_url": final_url
     }
 
     # Displays items

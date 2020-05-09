@@ -121,7 +121,7 @@ def get_item_containers_ng(url):
     soup = bSoup(request, "html.parser")
     itemContainers = soup.find_all("div", {"class": "item-container"})
 
-    return itemContainers
+    return itemContainers, soup
 
 def get_title_ng(item):
     """Function that retrieves the title of an item in New Egg"""
