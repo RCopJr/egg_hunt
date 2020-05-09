@@ -117,7 +117,7 @@ def display_dictionary(items):
 
 def get_item_containers_ng(url):
     """Creates a List of item containers from the specified site"""
-    request = requests.get(url, headers=d.headers).text
+    request = requests.get(url).text
     soup = bSoup(request, "html.parser")
     itemContainers = soup.find_all("div", {"class": "item-container"})
 
