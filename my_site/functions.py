@@ -16,7 +16,6 @@ def get_sum(items, indices):
             sum += int(items[name][index])
         items[name][d.user_sum_index] = sum
 
-#TODO maybe refactor this into two functions, one for ranking in dictionary and one for list. But they fit nicely so idk
 def rank(items, operation, index, indexR, return_seq_list):
     """Stores the rank of the item in the items dict given what attribute to rank and whether max or min is rank 1.
        Also returns a sequential list of titles if needed."""
@@ -76,7 +75,6 @@ def retrieve_data(itemContainers, items):
         #Gets link to item
         base_link = get_link_ng(item)
 
-
         #Initializes an array to store the information you get from site initially
         itemInfo = [None] * d.lengthDataGot
 
@@ -91,8 +89,6 @@ def retrieve_data(itemContainers, items):
             itemInfo = np.hstack((itemInfo, np.zeros(d.lengthItemInfo - len(itemInfo), dtype=float)))
 
             items[title] = itemInfo
-
-    return itemContainers
 
 def display_dictionary(items):
     """Prints the items and its contents out"""
@@ -213,15 +209,3 @@ def get_link_ng(item):
     base_link = a_tag.get("href")
 
     return base_link
-
-
-def get_item_containers_bb(url):
-    """A tragedy of me trying to scrape best buy"""
-    request = requests.get(url, headers=d.headers, timeout=5).text
-    soup = bSoup(request, "html.parser")
-    print(soup.text)
-    itemContainers = soup.find_all("div", {"class": "container-fluid_Up8mf"})
-    print(len(itemContainers))
-    for item in itemContainers:
-        print(item.get("div"))
-    return itemContainers

@@ -48,11 +48,9 @@ def new_search(request):
     # Variables for storing
     items = {}
     itemContainers, test = f.get_item_containers_ng(final_url)
-    len_item_containers = len(itemContainers)
-    # retrieves the information I want from the website
-    itemContainers = f.retrieve_data(itemContainers, items)
 
-    #TODO Also refactor this part so that you can create a for loop instead of ranking three times
+    # retrieves the information I want from the website
+    f.retrieve_data(itemContainers, items)
 
     # ranks prices
     f.rank(items, min, d.priceIndex, d.priceRIndex, False)
